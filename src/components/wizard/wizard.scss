@@ -1,5 +1,64 @@
+@import "../../styles/base";
+
 .wizard {
-	&_info-page--active {
-		color: red;
+	&__header {
+		background: #ccc;
+	}
+
+	&__info-page__group {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin: 0;
+		padding: 15px 0;
+	}
+
+	&__info-page {
+		align-items: center;
+		color: $white;
+		display: flex;
+		position: relative;
+	}
+
+	&__info-page__circle {
+		align-items: center;
+		background: $secondary-color;
+		border-radius: 50%;
+		display: flex;
+		font-size: 0.9rem;
+		height: 25px;
+		justify-content: center;
+		width: 25px;
+	}
+
+	&__info-page__separator {
+		background: $secondary-color;
+		height: 3px;
+		width: 30px;
+	}
+
+	&__info-page--active {
+		&::after {
+			bottom: -15px;
+			content: " ";
+			position: absolute;
+			left: 4px; // border-with left - (28px circle with / 2)
+			border-width: 10px;
+			border-style: solid;
+			border-color: transparent transparent $white transparent;
+		}
+
+		.wizard__info-page__circle {
+			box-shadow: 0 0 6px $secondary-color;
+			height: 28px;
+			width: 28px;
+		}
+	}
+
+	&__info-page--filled {
+		.wizard__info-page__circle,
+		.wizard__info-page__separator {
+			background: $primary-color;
+		}
 	}
 }

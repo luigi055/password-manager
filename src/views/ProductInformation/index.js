@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as tst from "./test-identifiers";
+import "./product-information.scss";
 
 const ProductInformation = ({ onNextButtonClick }) => (
 	<div>

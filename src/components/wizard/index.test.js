@@ -33,15 +33,27 @@ describe("Testing Wizard component", () => {
 		expect(infoPages[2]).toHaveTextContent(3);
 	});
 
-	it("should second page have the active class when the currentPage is 2", () => {
+	it("should second page have the active class and the first one filled when the currentPage is 2", () => {
 		renderWizardWithItems(2);
 		const { getAllByTestId } = screen;
 		const infoPages = getAllByTestId(tst.WIZARD_INFO_PAGE);
 
 		expect(infoPages).toHaveLength(3);
-		expect(infoPages[0]).not.toHaveClass("wizard_info-page--active");
-		expect(infoPages[1]).toHaveClass("wizard_info-page--active");
-		expect(infoPages[2]).not.toHaveClass("wizard_info-page--active");
+		expect(infoPages[0]).toHaveClass("wizard__info-page--filled");
+		expect(infoPages[1]).toHaveClass("wizard__info-page--active");
+		expect(infoPages[1]).not.toHaveClass("wizard__info-page--filled");
+		expect(infoPages[2]).not.toHaveClass("wizard__info-page--filled");
+	});
+
+	it("should show the check mark in all the filled items", () => {
+		renderWizardWithItems(3);
+		const { getAllByTestId } = screen;
+		const infoPages = getAllByTestId(tst.WIZARD_INFO_PAGE);
+
+		expect(infoPages).toHaveLength(3);
+		expect(infoPages[0]).toHaveTextContent("✓");
+		expect(infoPages[1]).toHaveTextContent("✓");
+		expect(infoPages[2]).toHaveTextContent("3");
 	});
 
 	it("should show the active class", () => {

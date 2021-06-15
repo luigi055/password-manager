@@ -7,21 +7,38 @@ const Wizard = ({ children, currentPage }) => {
 	const countChildren = React.Children.count(children);
 	const pagesIndex = Array.from({ length: countChildren }, (_, i) => i + 1);
 
+	const getCurrentPageStatus = (page) => {
+		let classes = "wizard__info-page";
+		if (currentPage > page) {
+			classes += " wizard__info-page--filled";
+		} else if (currentPage === page) {
+			classes += " wizard__info-page--active";
+		}
+
+		return classes;
+	};
+
 	return (
 		<div>
-			<header>
-				{pagesIndex.map((page) => (
-					<span
-						className={
-							currentPage === page ? "wizard_info-page--active" : undefined
-						}
-						data-testid={tst.WIZARD_INFO_PAGE}
-						id={`info-page-${page}`}
-						key={page}
-					>
-						{page}
-					</span>
-				))}
+			<header className="wizard__header">
+				<ul className="wizard__info-page__group">
+					{pagesIndex.map((page) => (
+						<li
+							className={getCurrentPageStatus(page)}
+							data-testid={tst.WIZARD_INFO_PAGE}
+							id={`info-page-${page}`}
+							key={page}
+							aria-current={currentPage === page}
+						>
+							<div className="wizard__info-page__circle">
+								{currentPage > page ? "✓" : page}
+							</div>
+							{page !== countChildren && (
+								<div className="wizard__info-page__separator" />
+							)}
+						</li>
+					))}
+				</ul>
 			</header>
 			{children[currentPage - 1]}
 		</div>
