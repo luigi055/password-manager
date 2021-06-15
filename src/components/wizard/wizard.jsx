@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import * as tst from "./testIdentifiers";
 import "./wizard.scss";
 
 const Wizard = ({ children, currentPage }) => {
@@ -13,6 +15,7 @@ const Wizard = ({ children, currentPage }) => {
 						className={
 							currentPage === page ? "wizard_info-page--active" : undefined
 						}
+						data-testid={tst.WIZARD_INFO_PAGE}
 						id={`info-page-${page}`}
 						key={page}
 					>
@@ -23,6 +26,10 @@ const Wizard = ({ children, currentPage }) => {
 			{children[currentPage - 1]}
 		</div>
 	);
+};
+
+Wizard.propTypes = {
+	currentPage: PropTypes.number,
 };
 
 const Page = ({ children }) => <div>{children}</div>;
