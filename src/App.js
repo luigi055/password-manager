@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Wizard } from "./components";
-import Feedback from "./views/Feedback";
-import CreatePasswordForm from "./views/Form";
-import ProductInformation from "./views/ProductInformation";
+import Feedback from "./views/feedback";
+import CreatePasswordForm from "./views/form";
+import ProductInformation from "./views/product-information";
 import { submitForm } from "./services/api";
 import "./App.scss";
 

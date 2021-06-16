@@ -3,7 +3,7 @@ import App from "./App";
 import {
 	INFORMATION_NEXT_BUTTON,
 	INFORMATION_VIEW,
-} from "./views/ProductInformation/test-identifiers";
+} from "./views/product-information/test-identifiers";
 import {
 	FORM_PASSWORD_INPUT,
 	FORM_REPEAT_PASSWORD_INPUT,
