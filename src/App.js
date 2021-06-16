@@ -14,6 +14,21 @@ const App = () => {
 	const goToFirstStep = () => setCurrentStep(1);
 	const goToSecondStep = () => setCurrentStep(2);
 
+	const handleSubmitForm = async () => {
+		setIsLoading(true);
+
+		try {
+			await submitForm(passwordForm.password);
+			setIsSuccess(true);
+			setPasswordForm({});
+		} catch (error) {
+			setIsSuccess(false);
+		} finally {
+			setCurrentStep(3);
+			setIsLoading(false);
+		}
+	};
+
 	return (
 		<>
 			<Wizard currentPage={currentStep}>
@@ -26,20 +41,7 @@ const App = () => {
 						setPasswordForm={setPasswordForm}
 						isLoading={isLoading}
 						onCancelClick={goToFirstStep}
-						onNextButtonClick={async () => {
-							setIsLoading(true);
-
-							try {
-								await submitForm(passwordForm.password);
-								setIsSuccess(true);
-								setPasswordForm({});
-							} catch (error) {
-								setIsSuccess(false);
-							} finally {
-								setCurrentStep(3);
-								setIsLoading(false);
-							}
-						}}
+						onNextButtonClick={handleSubmitForm}
 					/>
 				</Wizard.Page>
 				<Wizard.Page>

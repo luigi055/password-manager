@@ -1,3 +1,4 @@
+export const FORM_VIEW = "form__view";
 export const FORM_TITLE = "form__title";
 export const FORM_BODY = "form__body";
 export const FORM_PASSWORD_INPUT = "form__password-input";

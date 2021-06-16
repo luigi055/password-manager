@@ -49,7 +49,7 @@ Wizard.propTypes = {
 	currentPage: PropTypes.number,
 };
 
-const Page = ({ children }) => <div className="wizard__page">{children}</div>;
+const Page = ({ children }) => <>{children}</>;
 
 Wizard.Page = Page;
 

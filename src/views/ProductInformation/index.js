@@ -5,7 +5,7 @@ import * as tst from "./test-identifiers";
 import "./product-information.scss";
 
 const ProductInformation = ({ onNextButtonClick }) => (
-	<main>
+	<main data-testid={tst.INFORMATION_VIEW}>
 		<MainLayout>
 			<h1>Crea tu password Manager</h1>
 

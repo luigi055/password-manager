@@ -22,6 +22,7 @@ const CreatePasswordForm = ({
 	return (
 		<form
 			className="form"
+			data-testid={tst.FORM_VIEW}
 			onSubmit={(e) => {
 				e.preventDefault();
 			}}
