@@ -38,6 +38,17 @@ describe("Testing PasswordForm view", () => {
 		expect(spySetPasswordForm).toHaveBeenCalled();
 	});
 
+	it("should call the setPasswordForm callback when the user enter the hint", () => {
+		renderCreatePasswordForm({ setPasswordForm: spySetPasswordForm });
+
+		const { getByTestId } = screen;
+		const hintInput = getByTestId(tst.FORM_HINT_INPUT);
+
+		userEvent.type(hintInput, "hello");
+
+		expect(spySetPasswordForm).toHaveBeenCalled();
+	});
+
 	it("should disable the button when the password and the repeat password inputs are empty", () => {
 		renderCreatePasswordForm({});
 
