@@ -5,7 +5,6 @@ import {
 	INFORMATION_VIEW,
 } from "./views/ProductInformation/test-identifiers";
 import {
-	FORM_HINT_INPUT,
 	FORM_PASSWORD_INPUT,
 	FORM_REPEAT_PASSWORD_INPUT,
 	FORM_SUBMIT_BUTTON,
