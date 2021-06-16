@@ -1,0 +1,20 @@
+@import "../../styles/base";
+
+.field {
+	color: $secondary-color;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+
+	&__label {
+		color: inherit;
+		margin-bottom: 7px;
+	}
+
+	&__input {
+		color: inherit;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		border: 1px solid $secondary-color;
+		padding: 10px 15px;
+	}
+}

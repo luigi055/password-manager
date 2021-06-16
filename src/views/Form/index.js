@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, MainLayout, Footer } from "../../components";
+import { Button, MainLayout, Footer, Field } from "../../components";
 import { passwordRegExp } from "./validation";
 import * as tst from "./test-identifiers";
+import "./form.scss";
 
 const CreatePasswordForm = ({
 	passwordForm,
@@ -19,60 +20,91 @@ const CreatePasswordForm = ({
 		passwordForm.password === passwordForm.repeatPassword;
 
 	return (
-		<main>
+		<form
+			className="form"
+			onSubmit={(e) => {
+				e.preventDefault();
+			}}
+		>
 			<MainLayout>
-				<h1 data-testid={tst.FORM_TITLE}>page 2</h1>
+				<h1 data-testid={tst.FORM_TITLE}>Crea tu password Manager</h1>
 				<p data-testid={tst.FORM_BODY}>
-					elmfelfmelfmelm emfelfmel mfle mflmelfm{" "}
+					En primer lugar, debes crear una contraseña diferente para sus
+					pertenencias electronicas. No podrás recuperar tu contraseña, así que
+					recuerdala bien
 				</p>
-				<input
-					data-testid={tst.FORM_PASSWORD_INPUT}
-					id="password"
-					type="password"
-					onChange={(e) => {
-						setPasswordForm({
-							...passwordForm,
-							password: e.target.value,
-						});
-					}}
-					value={passwordForm.password || ""}
-				/>
-				<input
-					data-testid={tst.FORM_REPEAT_PASSWORD_INPUT}
-					id="validate-password"
-					type="password"
-					onChange={(e) => {
-						setPasswordForm({
-							...passwordForm,
-							repeatPassword: e.target.value,
-						});
-					}}
-					value={passwordForm.repeatPassword || ""}
-				/>
-				<p data-testid={tst.FORM_HINT_INFORMATION}>
-					elmfelfmelfmelm emfelfmel mfle mflmelfm{" "}
+				<section className="form__password-section">
+					<Field>
+						<Field.Label htmlFor="password">
+							Crea tu contraseña maestra
+						</Field.Label>
+
+						<Field.Input
+							data-testid={tst.FORM_PASSWORD_INPUT}
+							id="password"
+							type="password"
+							placeholder="Introduce tu contraseña"
+							onChange={(e) => {
+								setPasswordForm({
+									...passwordForm,
+									password: e.target.value,
+								});
+							}}
+							value={passwordForm.password || ""}
+						/>
+					</Field>
+					<Field>
+						<Field.Label htmlFor="validate-password">
+							Repite tu contraseña maestra
+						</Field.Label>
+						<Field.Input
+							data-testid={tst.FORM_REPEAT_PASSWORD_INPUT}
+							id="validate-password"
+							placeholder="Repite tu contraseña"
+							type="password"
+							onChange={(e) => {
+								setPasswordForm({
+									...passwordForm,
+									repeatPassword: e.target.value,
+								});
+							}}
+							value={passwordForm.repeatPassword || ""}
+						/>
+					</Field>
+				</section>
+				<p>
+					Tambien puedes crear una pista que te ayude a recordar tu contraseña
+					maestra.
 				</p>
-				<textarea
-					data-testid={tst.FORM_HINT_INPUT}
-					onChange={(e) => {
-						setPasswordForm({
-							...passwordForm,
-							hint: e.target.value,
-						});
-					}}
-					value={passwordForm.hint || ""}
-				/>
+				<Field>
+					<Field.Label htmlFor="hint" data-testid={tst.FORM_HINT_INFORMATION}>
+						Crea tu pista para recordar tu contraseña (opcional)
+					</Field.Label>
+					<Field.TextArea
+						id="hint"
+						data-testid={tst.FORM_HINT_INPUT}
+						onChange={(e) => {
+							setPasswordForm({
+								...passwordForm,
+								hint: e.target.value,
+							});
+						}}
+						value={passwordForm.hint || ""}
+					/>
+				</Field>
 			</MainLayout>
 			<Footer>
 				<Button
+					type="button"
 					visualType="text"
 					variant="secondary"
 					data-testid={tst.FORM_CANCEL_BUTTON}
 					onClick={onCancelClick}
 				>
-					cancelar
+					Cancelar
 				</Button>
 				<Button
+					type="submit"
 					variant="secondary"
 					data-testid={tst.FORM_SUBMIT_BUTTON}
 					disabled={!isPasswordValid || !isPasswordVerificationValid}
@@ -81,7 +113,7 @@ const CreatePasswordForm = ({
 					{isLoading ? "Sending request..." : "Go to page 3"}
 				</Button>
 			</Footer>
-		</main>
+		</form>
 	);
 };
 

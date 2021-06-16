@@ -1,0 +1,14 @@
+@import "../../styles/base.scss";
+
+.form {
+	@media screen and (min-width: $medium-viewport) {
+		.form__password-section {
+			display: flex !important;
+
+			& > div {
+				margin-right: 25px;
+				width: 250px;
+			}
+		}
+	}
+}

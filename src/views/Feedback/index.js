@@ -10,13 +10,15 @@ const Feedback = ({ onRestartButton, onRetryButton, isSuccess }) =>
 			<MainLayout>
 				<h1 data-testid={tst.FEEDBACK_CARD_TITLE}>Success</h1>
 				<p data-testid={tst.FEEDBACK_CARD_BODY}>something nice to say</p>
-				<Button
-					visualType="text"
-					data-testid={tst.FEEDBACK_CARD_BUTTON}
-					onClick={onRestartButton}
-				>
-					Volver a home
-				</Button>
+				<Footer>
+					<Button
+						visualType="text"
+						data-testid={tst.FEEDBACK_CARD_BUTTON}
+						onClick={onRestartButton}
+					>
+						Volver a home
+					</Button>
+				</Footer>
 			</MainLayout>
 		</div>
 	) : (
@@ -24,13 +26,15 @@ const Feedback = ({ onRestartButton, onRetryButton, isSuccess }) =>
 			<MainLayout>
 				<h1 data-testid={tst.FEEDBACK_CARD_TITLE}>Failed</h1>
 				<p data-testid={tst.FEEDBACK_CARD_BODY}>something bad to say</p>
-				<Button
-					visualType="text"
-					data-testid={tst.FEEDBACK_CARD_BUTTON}
-					onClick={onRetryButton}
-				>
-					Volver a intentar
-				</Button>
+				<Footer>
+					<Button
+						visualType="text"
+						data-testid={tst.FEEDBACK_CARD_BUTTON}
+						onClick={onRetryButton}
+					>
+						Volver a intentar
+					</Button>
+				</Footer>
 			</MainLayout>
 		</div>
 	);
