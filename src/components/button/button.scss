@@ -1,0 +1,37 @@
+@import "../../styles/base";
+
+.button {
+	border: 0;
+	cursor: pointer;
+	font-weight: bold;
+
+	&:disabled {
+		opacity: 0.5;
+	}
+
+	&.filled {
+		color: $white;
+		padding: 10px 15px;
+	}
+
+	&.text {
+		background: none;
+		padding: 0;
+	}
+
+	&.filled.primary {
+		background: $primary-color;
+	}
+
+	&.text.primary {
+		color: $primary-color;
+	}
+
+	&.filled.secondary {
+		background: $secondary-color;
+	}
+
+	&.text.secondary {
+		color: $secondary-color;
+	}
+}
