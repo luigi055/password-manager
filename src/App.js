@@ -32,11 +32,11 @@ const App = () => {
 							try {
 								await submitForm(passwordForm.password);
 								setIsSuccess(true);
+								setPasswordForm({});
 							} catch (error) {
 								setIsSuccess(false);
 							} finally {
 								setCurrentStep(3);
-								setPasswordForm({});
 								setIsLoading(false);
 							}
 						}}
@@ -45,7 +45,7 @@ const App = () => {
 				<Wizard.Page>
 					<Feedback
 						isSuccess={isSuccess}
-						onRestartButton={goToFirstStep}
+						onNextButton={goToFirstStep}
 						onRetryButton={goToSecondStep}
 					/>
 				</Wizard.Page>

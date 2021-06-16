@@ -80,8 +80,11 @@ const CreatePasswordForm = ({
 					<Field.Label htmlFor="hint" data-testid={tst.FORM_HINT_INFORMATION}>
 						Crea tu pista para recordar tu contraseña (opcional)
 					</Field.Label>
-					<Field.TextArea
+					<Field.Input
 						id="hint"
+						placeholder="Introduce tu pista"
+						maxLength={20}
+						autoComplete="off"
 						data-testid={tst.FORM_HINT_INPUT}
 						onChange={(e) => {
 							setPasswordForm({
@@ -104,7 +107,6 @@ const CreatePasswordForm = ({
 					Cancelar
 				</Button>
 				<Button
-					type="submit"
 					variant="secondary"
 					data-testid={tst.FORM_SUBMIT_BUTTON}
 					disabled={!isPasswordValid || !isPasswordVerificationValid}

@@ -32,7 +32,7 @@ describe("Testing Feedback view", () => {
 			renderFeedBack({
 				isSuccess: false,
 				onRetryButton: spyOnRetryButton,
-				onRestartButton: spyOnRestartButton,
+				onNextButton: spyOnRestartButton,
 			});
 		});
 
@@ -52,11 +52,11 @@ describe("Testing Feedback view", () => {
 			renderFeedBack({
 				isSuccess: true,
 				onRetryButton: spyOnRetryButton,
-				onRestartButton: spyOnRestartButton,
+				onNextButton: spyOnRestartButton,
 			});
 		});
 
-		it("should call onRestartButton when the user clicks on restart button", () => {
+		it("should call onNextButton when the user clicks on restart button", () => {
 			const { getByTestId } = screen;
 
 			const cardButton = getByTestId(tst.FEEDBACK_CARD_BUTTON);

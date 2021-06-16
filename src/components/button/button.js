@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, memo } from "react";
 import PropTypes from "prop-types";
 import "./button.scss";
 
@@ -14,7 +14,7 @@ const Button = forwardRef(
 			variant = "primary",
 			visualType = "filled",
 			children,
-			className,
+			className = "",
 			...props
 		},
 		ref
@@ -38,4 +38,4 @@ Button.propTypes = {
 	visualType: PropTypes.oneOf(["filled", "text"]),
 };
 
-export default Button;
+export default memo(Button);
