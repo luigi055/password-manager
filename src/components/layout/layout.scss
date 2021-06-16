@@ -1,12 +1,32 @@
+@import "../../styles/base";
+
 .layout__main {
 	margin-left: auto;
 	margin-right: auto;
-	padding: 30px 100px 0;
+	margin: 0 auto;
+	max-width: 772px;
+	padding: 30px 20px 0;
 }
 
 .layout__footer {
-	border-top: 1px solid #ccc;
 	display: flex;
 	justify-content: space-between;
-	padding: 30px 100px;
+	padding: 30px 20px;
+	max-width: 772px;
+	margin: 0 auto;
+}
+
+.layout__footer-wrapper {
+	border-top: 1px solid #ccc;
+	margin-top: 80px;
+}
+
+@media screen and (min-width: $medium-viewport) {
+	.layout__main {
+		padding: 30px 100px 0;
+	}
+
+	.layout__footer {
+		padding: 30px 100px;
+	}
 }

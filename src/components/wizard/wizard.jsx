@@ -19,7 +19,7 @@ const Wizard = ({ children, currentPage }) => {
 	};
 
 	return (
-		<div>
+		<div className="wizard">
 			<header className="wizard__header">
 				<ul className="wizard__info-page__group">
 					{pagesIndex.map((page) => (
@@ -49,7 +49,7 @@ Wizard.propTypes = {
 	currentPage: PropTypes.number,
 };
 
-const Page = ({ children }) => <div>{children}</div>;
+const Page = ({ children }) => <div className="wizard__page">{children}</div>;
 
 Wizard.Page = Page;
 

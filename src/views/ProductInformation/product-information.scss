@@ -1,2 +1,26 @@
+@import "../../styles/base.scss";
+
 .product-information {
+	&__about__column {
+		.product-information__about__image-wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 150px;
+		}
+
+		p {
+			text-align: left;
+		}
+	}
+
+	@media screen and (min-width: $medium-viewport) {
+		&__about {
+			display: flex;
+		}
+
+		&__about__column {
+			flex-basis: 50%;
+		}
+	}
 }

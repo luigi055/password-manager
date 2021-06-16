@@ -9,22 +9,26 @@ const ProductInformation = ({ onNextButtonClick }) => (
 		<MainLayout>
 			<h1>Crea tu password Manager</h1>
 
-			<section>
-				<div>
-					<img
-						src="assets/img/group.svg"
-						alt="it is tricky to remember all your passwords"
-					/>
+			<section className="product-information__about">
+				<div className="product-information__about__column">
+					<div className="product-information__about__image-wrapper">
+						<img
+							src="assets/img/group.svg"
+							alt="it is tricky to remember all your passwords"
+						/>
+					</div>
 					<p>
 						Guarda aquí todas tus contraseñas, datos o cualquier información,
 						olvida las notas de papel y las aplicaciones no protegidas
 					</p>
 				</div>
-				<div>
-					<img
-						src="assets/img/group-3.svg"
-						alt="it is tricky to remember all your passwords"
-					/>
+				<div className="product-information__about__column">
+					<div className="product-information__about__image-wrapper">
+						<img
+							src="assets/img/group-3.svg"
+							alt="it is tricky to remember all your passwords"
+						/>
+					</div>
 					<p>
 						Crea tu clave maestra. Solo tu podrás acceder a tus secretos con
 						ellos.
