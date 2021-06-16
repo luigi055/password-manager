@@ -18,7 +18,7 @@ Simple wizard that guide the user to create its own password manager
   >
 </p>
 
-<h2 align="center"><a  href="http://ob-password-manager.surge.sh/search">Live Demo</a></h2>
+<h2 align="center"><a  href="http://ob-password-manager.surge.sh">Live Demo</a></h2>
 
 ## Technology Stack
 
